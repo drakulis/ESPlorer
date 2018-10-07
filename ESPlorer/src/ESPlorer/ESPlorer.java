@@ -37,6 +37,8 @@ import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;
 import jssc.SerialPortException;
 import jssc.SerialPortList;
+import org.fife.ui.rtextarea.SearchContext;
+import org.fife.ui.rtextarea.SearchEngine;
 
 public class ESPlorer extends javax.swing.JFrame {
 
@@ -123,6 +125,8 @@ public class ESPlorer extends javax.swing.JFrame {
         Author = new javax.swing.JLabel();
         HomePage = new javax.swing.JButton();
         Author1 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         ContextMenuESPFileLUA = new javax.swing.JPopupMenu();
         MenuItemESPFileDo = new javax.swing.JMenuItem();
         TerminalSeparator3 = new javax.swing.JPopupMenu.Separator();
@@ -153,6 +157,13 @@ public class ESPlorer extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JToolBar.Separator();
         ButtonSendSelected = new javax.swing.JButton();
         ButtonSendLine = new javax.swing.JButton();
+        SearchPanel = new javax.swing.JLayeredPane();
+        jButton1 = new javax.swing.JButton();
+        SearchField = new javax.swing.JTextField();
+        FindNext = new javax.swing.JButton();
+        FindPrevious = new javax.swing.JButton();
+        FindMatchCase = new javax.swing.JCheckBox();
+        FindHighlightAll = new javax.swing.JCheckBox();
         FilesTabbedPane = new javax.swing.JTabbedPane();
         FileLayeredPane = new javax.swing.JLayeredPane();
         TextScroll = new org.fife.ui.rtextarea.RTextScrollPane();
@@ -538,6 +549,7 @@ public class ESPlorer extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         MenuItemEditSendSelected = new javax.swing.JMenuItem();
         MenuItemEditSendLine = new javax.swing.JMenuItem();
+        MenuItemEditFind = new javax.swing.JMenuItem();
         MenuESP = new javax.swing.JMenu();
         MenuItemESPReset = new javax.swing.JMenuItem();
         MenuItemESPFormat = new javax.swing.JMenuItem();
@@ -814,19 +826,20 @@ public class ESPlorer extends javax.swing.JFrame {
         About.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         About.setTitle("About");
         About.setIconImage(null);
-        About.setMinimumSize(new java.awt.Dimension(406, 250));
+        About.setMinimumSize(new java.awt.Dimension(406, 280));
         About.setModalityType(java.awt.Dialog.ModalityType.DOCUMENT_MODAL);
+        About.setPreferredSize(new java.awt.Dimension(428, 280));
         About.setResizable(false);
+        About.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                AboutFocusLost(evt);
+            }
+        });
         About.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
             }
             public void windowLostFocus(java.awt.event.WindowEvent evt) {
                 AboutWindowLostFocus(evt);
-            }
-        });
-        About.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                AboutFocusLost(evt);
             }
         });
 
@@ -872,6 +885,12 @@ public class ESPlorer extends javax.swing.JFrame {
         Author1.setText("4refr0nt@gmail.com");
         Author1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Tweaks");
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("JB");
+
         javax.swing.GroupLayout AboutLayout = new javax.swing.GroupLayout(About.getContentPane());
         About.getContentPane().setLayout(AboutLayout);
         AboutLayout.setHorizontalGroup(
@@ -879,24 +898,30 @@ public class ESPlorer extends javax.swing.JFrame {
             .addComponent(Author, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(AppName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Version, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(AboutLayout.createSequentialGroup()
+            .addComponent(Author1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AboutLayout.createSequentialGroup()
                 .addComponent(Donate, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HomePage, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(Author1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         AboutLayout.setVerticalGroup(
             AboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AboutLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addComponent(AppName, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Version)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Author)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Author1)
-                .addGap(24, 24, 24)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(AboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Donate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(HomePage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1007,7 +1032,6 @@ public class ESPlorer extends javax.swing.JFrame {
             }
         });
 
-        NodeMCU.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         NodeMCU.setMinimumSize(new java.awt.Dimension(100, 100));
         NodeMCU.setPreferredSize(new java.awt.Dimension(461, 537));
         NodeMCU.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1264,7 +1288,7 @@ public class ESPlorer extends javax.swing.JFrame {
         ButtonSendSelected.setToolTipText("Send selected block to ESP");
         ButtonSendSelected.setHideActionText(true);
         ButtonSendSelected.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ButtonSendSelected.setText("Block");
+        ButtonSendSelected.setLabel("Block");
         ButtonSendSelected.setMaximumSize(new java.awt.Dimension(40, 40));
         ButtonSendSelected.setMinimumSize(new java.awt.Dimension(40, 40));
         ButtonSendSelected.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -1298,6 +1322,78 @@ public class ESPlorer extends javax.swing.JFrame {
         });
         FilesToolBar.add(ButtonSendLine);
 
+        SearchPanel.setVisible(false);
+        SearchPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        SearchPanel.setOpaque(true);
+        SearchPanel.setPreferredSize(new java.awt.Dimension(531, 35));
+        SearchPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/abort.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        SearchPanel.add(jButton1);
+
+        SearchField.setMaximumSize(new java.awt.Dimension(250, 20));
+        SearchField.setMinimumSize(new java.awt.Dimension(150, 20));
+        SearchField.setPreferredSize(new java.awt.Dimension(150, 20));
+        SearchField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                SearchFieldFocusLost(evt);
+            }
+        });
+        SearchField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchFieldActionPerformed(evt);
+            }
+        });
+        SearchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                SearchFieldKeyPressed(evt);
+            }
+        });
+        SearchPanel.add(SearchField);
+
+        FindNext.setText("Next");
+        FindNext.setActionCommand("FindNext");
+        FindNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindNextActionPerformed(evt);
+            }
+        });
+        SearchPanel.add(FindNext);
+
+        FindPrevious.setText("Previous");
+        FindPrevious.setActionCommand("FindPrev");
+        FindPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindPreviousActionPerformed(evt);
+            }
+        });
+        SearchPanel.add(FindPrevious);
+
+        FindMatchCase.setText("Match Case");
+        FindMatchCase.setHideActionText(true);
+        FindMatchCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindMatchCaseActionPerformed(evt);
+            }
+        });
+        SearchPanel.add(FindMatchCase);
+
+        FindHighlightAll.setText("Highlight all");
+        FindHighlightAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindHighlightAllActionPerformed(evt);
+            }
+        });
+        SearchPanel.add(FindHighlightAll);
+
         FilesTabbedPane.setOpaque(true);
         FilesTabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -1323,6 +1419,8 @@ public class ESPlorer extends javax.swing.JFrame {
         TextEditor.setCodeFoldingEnabled(true);
         TextEditor.setDragEnabled(false);
         TextEditor.setFadeCurrentLineHighlight(true);
+        TextEditor.setMarkOccurrences(true);
+        TextEditor.setMarkOccurrencesDelay(500);
         TextEditor.setPaintMarkOccurrencesBorder(true);
         TextEditor.setPaintMatchedBracketPair(true);
         TextEditor.setPopupMenu(ContextMenuEditor);
@@ -1351,11 +1449,13 @@ public class ESPlorer extends javax.swing.JFrame {
             }
         });
         TextEditor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TextEditorKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TextEditorKeyTyped(evt);
             }
         });
-        TextScroll.setViewportView(TextEditor);
 
         FileLayeredPane.setLayer(TextScroll, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -1363,11 +1463,11 @@ public class ESPlorer extends javax.swing.JFrame {
         FileLayeredPane.setLayout(FileLayeredPaneLayout);
         FileLayeredPaneLayout.setHorizontalGroup(
             FileLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+            .addComponent(TextScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
         FileLayeredPaneLayout.setVerticalGroup(
             FileLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+            .addComponent(TextScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
         );
 
         FilesTabbedPane.addTab("NewFile", FileLayeredPane);
@@ -1576,6 +1676,7 @@ public class ESPlorer extends javax.swing.JFrame {
         LeftMainButtons.add(FilesUpload);
 
         SriptsTab.setLayer(FilesToolBar, javax.swing.JLayeredPane.PALETTE_LAYER);
+        SriptsTab.setLayer(SearchPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         SriptsTab.setLayer(FilesTabbedPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
         SriptsTab.setLayer(LeftExtraButtons, javax.swing.JLayeredPane.DEFAULT_LAYER);
         SriptsTab.setLayer(Busy, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1600,11 +1701,14 @@ public class ESPlorer extends javax.swing.JFrame {
                     .addComponent(LeftExtraButtons, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LeftMainButtons, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(SearchPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         SriptsTabLayout.setVerticalGroup(
             SriptsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SriptsTabLayout.createSequentialGroup()
                 .addComponent(FilesToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FilesTabbedPane)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2708,7 +2812,7 @@ public class ESPlorer extends javax.swing.JFrame {
                 .addComponent(SnippetEdit14, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SnippetEdit15, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
         SnippetTopPane.setOpaque(true);
@@ -2790,7 +2894,7 @@ public class ESPlorer extends javax.swing.JFrame {
                         .addComponent(SnippetRun, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Condensed)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         SnippetTopPaneLayout.setVerticalGroup(
             SnippetTopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3315,7 +3419,7 @@ public class ESPlorer extends javax.swing.JFrame {
                 .addGroup(NodeMCUSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLayeredPane2)
                     .addComponent(jLayeredPane3))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         NodeMCUSettingsLayout.setVerticalGroup(
             NodeMCUSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3331,7 +3435,7 @@ public class ESPlorer extends javax.swing.JFrame {
                         .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(45, 45, 45)
                 .addComponent(OptionsFileSendMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 134, Short.MAX_VALUE))
+                .addGap(0, 138, Short.MAX_VALUE))
         );
 
         TextTab.addTab("Settings", new javax.swing.ImageIcon(getClass().getResource("/resources/settings2.png")), NodeMCUSettings, "Settings for file sending"); // NOI18N
@@ -3340,11 +3444,11 @@ public class ESPlorer extends javax.swing.JFrame {
         NodeMCU.setLayout(NodeMCULayout);
         NodeMCULayout.setHorizontalGroup(
             NodeMCULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextTab, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+            .addComponent(TextTab, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
         );
         NodeMCULayout.setVerticalGroup(
             NodeMCULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextTab, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+            .addComponent(TextTab, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
         );
 
         TextTab.getAccessibleContext().setAccessibleName("NewFile");
@@ -3860,7 +3964,7 @@ public class ESPlorer extends javax.swing.JFrame {
         cmdSetCIPAPMAC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmdSetCIPAPMAC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/set.png"))); // NOI18N
         cmdSetCIPAPMAC.setToolTipText("Set softAP MAC address");
-        cmdSetCIPAPMAC.setText("CIPAPMAC= Set MAC softAP");
+        cmdSetCIPAPMAC.setLabel("CIPAPMAC= Set MAC softAP");
         cmdSetCIPAPMAC.setMargin(new java.awt.Insets(2, 2, 2, 2));
         cmdSetCIPAPMAC.setMaximumSize(new java.awt.Dimension(210, 23));
         cmdSetCIPAPMAC.setMinimumSize(new java.awt.Dimension(210, 23));
@@ -3909,7 +4013,7 @@ public class ESPlorer extends javax.swing.JFrame {
         cmdSetCIPAP.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmdSetCIPAP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/set.png"))); // NOI18N
         cmdSetCIPAP.setToolTipText("Set softAP IP address");
-        cmdSetCIPAP.setText("CIPAP= Set softAP IP");
+        cmdSetCIPAP.setLabel("CIPAP= Set softAP IP");
         cmdSetCIPAP.setMargin(new java.awt.Insets(2, 2, 2, 2));
         cmdSetCIPAP.setMaximumSize(new java.awt.Dimension(210, 23));
         cmdSetCIPAP.setMinimumSize(new java.awt.Dimension(210, 23));
@@ -5969,6 +6073,8 @@ public class ESPlorer extends javax.swing.JFrame {
             }
         });
 
+        TerminalLogPane.setMinimumSize(new java.awt.Dimension(293, 421));
+
         RightSplitPane.setBorder(null);
         RightSplitPane.setDividerLocation(320);
         RightSplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
@@ -6073,8 +6179,12 @@ public class ESPlorer extends javax.swing.JFrame {
 
         FileManagerScrollPane.setBorder(null);
         FileManagerScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        FileManagerScrollPane.setMaximumSize(new java.awt.Dimension(145, 145));
+        FileManagerScrollPane.setMinimumSize(new java.awt.Dimension(145, 145));
 
         FileManagersLayer.setMaximumSize(new java.awt.Dimension(145, 145));
+        FileManagersLayer.setMinimumSize(new java.awt.Dimension(145, 145));
+        FileManagersLayer.setPreferredSize(new java.awt.Dimension(145, 145));
 
         NodeFileManagerPane.setComponentPopupMenu(ContextMenuFileManager);
         NodeFileManagerPane.setMaximumSize(new java.awt.Dimension(145, 145));
@@ -6520,7 +6630,7 @@ public class ESPlorer extends javax.swing.JFrame {
         SendCommand.setToolTipText("");
         SendCommand.setAlignmentY(0.0F);
         SendCommand.setEnabled(false);
-        SendCommand.setText("Send");
+        SendCommand.setLabel("Send");
         SendCommand.setMargin(new java.awt.Insets(0, 0, 0, 0));
         SendCommand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -6709,7 +6819,7 @@ public class ESPlorer extends javax.swing.JFrame {
         MenuFile.add(jSeparator2);
 
         MenuItemFileExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        MenuItemFileExit.setText("Exit");
+        MenuItemFileExit.setLabel("Exit");
         MenuItemFileExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuItemFileExitActionPerformed(evt);
@@ -6804,6 +6914,16 @@ public class ESPlorer extends javax.swing.JFrame {
             }
         });
         MenuEdit.add(MenuItemEditSendLine);
+
+        MenuItemEditFind.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        MenuItemEditFind.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/find.png"))); // NOI18N
+        MenuItemEditFind.setLabel("Find");
+        MenuItemEditFind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemEditFindActionPerformed(evt);
+            }
+        });
+        MenuEdit.add(MenuItemEditFind);
 
         MainMenuBar.add(MenuEdit);
 
@@ -7003,7 +7123,7 @@ public class ESPlorer extends javax.swing.JFrame {
         MenuView.add(MenuItemViewRightExtra);
 
         MenuItemViewDonate.setSelected(true);
-        MenuItemViewDonate.setText("<html>I already made a donation, <br />please hide dontation button at bottom right!");
+        MenuItemViewDonate.setText("<html>I'm already make donation, <br />please hide dontation button at bottom right!");
         MenuItemViewDonate.setToolTipText("Enable/disable Extra buttons panel at bottom right");
         MenuItemViewDonate.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -7430,7 +7550,7 @@ public class ESPlorer extends javax.swing.JFrame {
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         PortFinder();
-        this.setTitle("ESPlorer " + version + " by 4refr0nt");
+        this.setTitle("ESPlorer " + version + " by 4refr0nt (JB mod)");
         ProgressBar.setVisible(false);
         CommandsSetNodeMCU();
         isToolbarShow();
@@ -9674,10 +9794,12 @@ public class ESPlorer extends javax.swing.JFrame {
     }//GEN-LAST:event_NodeMCUFocusGained
 
     private void TextTabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TextTabStateChanged
+        MenuItemEditFind.setEnabled(false);
         if (TextTab.getSelectedIndex() == 2) { // snippets
         } else if (TextTab.getSelectedIndex() == 3) { // Settings
         } else if (TextTab.getSelectedIndex() == 1) { // Commands
         } else if (TextTab.getSelectedIndex() == 0) { // Scripts
+            MenuItemEditFind.setEnabled(true);
         }
     }//GEN-LAST:event_TextTabStateChanged
 
@@ -9868,36 +9990,52 @@ public class ESPlorer extends javax.swing.JFrame {
         SnippetText.setEnabled(false);
         if (iSnippets == 0) {
             ButtonSnippet0.setText(SnippetName.getText());
+            SnippetEdit0.setText(SnippetName.getText());
         } else if (iSnippets == 1) {
             ButtonSnippet1.setText(SnippetName.getText());
+            SnippetEdit1.setText(SnippetName.getText());
         } else if (iSnippets == 2) {
             ButtonSnippet2.setText(SnippetName.getText());
+            SnippetEdit2.setText(SnippetName.getText());
         } else if (iSnippets == 3) {
             ButtonSnippet3.setText(SnippetName.getText());
+            SnippetEdit3.setText(SnippetName.getText());
         } else if (iSnippets == 4) {
             ButtonSnippet4.setText(SnippetName.getText());
+            SnippetEdit4.setText(SnippetName.getText());
         } else if (iSnippets == 5) {
             ButtonSnippet5.setText(SnippetName.getText());
+            SnippetEdit5.setText(SnippetName.getText());
         } else if (iSnippets == 6) {
             ButtonSnippet6.setText(SnippetName.getText());
+            SnippetEdit6.setText(SnippetName.getText());
         } else if (iSnippets == 7) {
             ButtonSnippet7.setText(SnippetName.getText());
+            SnippetEdit7.setText(SnippetName.getText());
         } else if (iSnippets == 8) {
             ButtonSnippet8.setText(SnippetName.getText());
+            SnippetEdit8.setText(SnippetName.getText());
         } else if (iSnippets == 9) {
             ButtonSnippet9.setText(SnippetName.getText());
+            SnippetEdit9.setText(SnippetName.getText());
         } else if (iSnippets == 10) {
             ButtonSnippet10.setText(SnippetName.getText());
+            SnippetEdit10.setText(SnippetName.getText());
         } else if (iSnippets == 11) {
             ButtonSnippet11.setText(SnippetName.getText());
+            SnippetEdit11.setText(SnippetName.getText());
         } else if (iSnippets == 12) {
             ButtonSnippet12.setText(SnippetName.getText());
+            SnippetEdit12.setText(SnippetName.getText());
         } else if (iSnippets == 13) {
             ButtonSnippet13.setText(SnippetName.getText());
+            SnippetEdit13.setText(SnippetName.getText());
         } else if (iSnippets == 14) {
             ButtonSnippet14.setText(SnippetName.getText());
+            SnippetEdit14.setText(SnippetName.getText());
         } else {
             ButtonSnippet15.setText(SnippetName.getText());
+            SnippetEdit15.setText(SnippetName.getText());
             iSnippets = 15;
         }
         SetSnippetEditButtonsTooltip();
@@ -10661,6 +10799,82 @@ public class ESPlorer extends javax.swing.JFrame {
     private void cmdSetPINGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSetPINGActionPerformed
         btnSend("AT+PING=\"" + PingIP.getText() + "\"");
     }//GEN-LAST:event_cmdSetPINGActionPerformed
+
+    private void MenuItemEditFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemEditFindActionPerformed
+        System.out.println("ESPlorer.ESPlorer.ManuItemEditFindActionPerformed()");
+        SearchPanel.setVisible(!SearchPanel.isVisible());
+        if (SearchPanel.isVisible()) {
+            SearchField.requestFocus();
+        } else {
+            TextEditor1.get(iTab).requestFocus();
+            searchContext.setSearchFor("");
+            SearchEngine.find(TextEditor1.get(iTab), searchContext);
+        }
+    }//GEN-LAST:event_MenuItemEditFindActionPerformed
+
+    private void search(boolean forward) {
+              // Create an object defining our search parameters.
+//      SearchContext context = new SearchContext();
+      String text = SearchField.getText();
+      if (text.length() == 0) {
+         return;
+      }
+      searchContext.setSearchFor(text);
+      searchContext.setMarkAll(FindHighlightAll.isSelected());
+      searchContext.setMatchCase(FindMatchCase.isSelected());
+//      context.setRegularExpression(regexCB.isSelected());
+      searchContext.setSearchForward(forward);
+      searchContext.setWholeWord(false);
+
+      boolean found = SearchEngine.find(TextEditor1.get(iTab), searchContext).wasFound();
+      if (!found) {
+         JOptionPane.showMessageDialog(this, "Text not found");
+      }
+    }
+    
+    private void FindNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindNextActionPerformed
+        search(true);
+    }//GEN-LAST:event_FindNextActionPerformed
+
+    private void SearchFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SearchFieldFocusLost
+        // SearchPanel.setVisible(false);
+    }//GEN-LAST:event_SearchFieldFocusLost
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        SearchPanel.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void FindPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindPreviousActionPerformed
+        search(false);
+    }//GEN-LAST:event_FindPreviousActionPerformed
+
+    private void SearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchFieldActionPerformed
+        FindNext.doClick(0);
+    }//GEN-LAST:event_SearchFieldActionPerformed
+
+    private void SearchFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchFieldKeyPressed
+        if (evt.getExtendedKeyCode() == KeyEvent.VK_ESCAPE) {
+            SearchPanel.setVisible(false);
+        }
+    }//GEN-LAST:event_SearchFieldKeyPressed
+
+    private void FindHighlightAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindHighlightAllActionPerformed
+        searchContext.setMarkAll(FindHighlightAll.isSelected());
+        SearchEngine.markAll(TextEditor1.get(iTab), searchContext);
+        prefs.putBoolean(SEARCH_HIGHLIGHT_ALL, FindHighlightAll.isSelected());
+    }//GEN-LAST:event_FindHighlightAllActionPerformed
+
+    private void FindMatchCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindMatchCaseActionPerformed
+        searchContext.setMatchCase(FindMatchCase.isSelected());
+        SearchEngine.markAll(TextEditor1.get(iTab), searchContext);
+        prefs.putBoolean(SEARCH_MATCH_CASE, FindMatchCase.isSelected());
+    }//GEN-LAST:event_FindMatchCaseActionPerformed
+
+    private void TextEditorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextEditorKeyPressed
+        if (evt.getExtendedKeyCode() == KeyEvent.VK_ESCAPE) {
+            SearchPanel.setVisible(false);
+        }
+    }//GEN-LAST:event_TextEditorKeyPressed
     private void NodeFileSystemInfo() {
         String cmd = "r,u,t=file.fsinfo() print(\"Total : \"..t..\" bytes\\r\\nUsed  : \"..u..\" bytes\\r\\nRemain: \"..r..\" bytes\\r\\n\") r=nil u=nil t=nil";
         LocalEcho = false;
@@ -10905,6 +11119,10 @@ public class ESPlorer extends javax.swing.JFrame {
     private javax.swing.JTabbedPane FilesTabbedPane;
     private javax.swing.JToolBar FilesToolBar;
     private javax.swing.JButton FilesUpload;
+    private javax.swing.JCheckBox FindHighlightAll;
+    private javax.swing.JCheckBox FindMatchCase;
+    private javax.swing.JButton FindNext;
+    private javax.swing.JButton FindPrevious;
     private javax.swing.ButtonGroup Firmware;
     private javax.swing.JButton GSLP;
     private javax.swing.JButton HomePage;
@@ -10944,6 +11162,7 @@ public class ESPlorer extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuItemESPReset;
     private javax.swing.JMenuItem MenuItemEditCopy;
     private javax.swing.JMenuItem MenuItemEditCut;
+    private javax.swing.JMenuItem MenuItemEditFind;
     private javax.swing.JMenuItem MenuItemEditPaste;
     private javax.swing.JMenuItem MenuItemEditRedo;
     private javax.swing.JMenuItem MenuItemEditSendLine;
@@ -11102,6 +11321,8 @@ public class ESPlorer extends javax.swing.JFrame {
     private javax.swing.JTextField SSID;
     private javax.swing.JTextField SSIDsoftAP;
     private javax.swing.JScrollPane ScrollLog;
+    private javax.swing.JTextField SearchField;
+    private javax.swing.JLayeredPane SearchPanel;
     private javax.swing.JButton SendCommand;
     private javax.swing.JLayeredPane SendUnconfirmed;
     private javax.swing.JComboBox ServerMode;
@@ -11250,11 +11471,14 @@ public class ESPlorer extends javax.swing.JFrame {
     private javax.swing.JComboBox conn_id;
     private javax.swing.JTextArea data;
     private javax.swing.JComboBox encryption;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -11362,6 +11586,8 @@ public class ESPlorer extends javax.swing.JFrame {
     public static String tx_data = "";
     public static byte[] rx_byte;
     public static byte[] tx_byte;
+    public static SearchContext searchContext = new SearchContext();
+
     // downloader
     public int packets = 0;
     public String rcvFile = "";
@@ -11408,6 +11634,7 @@ public class ESPlorer extends javax.swing.JFrame {
     private static final float LOG_FONT_SIZE_DEFAULT = 10f;
     private static final float LOG_FONT_SIZE_MAX = 40f;
     private static final float LOG_FONT_SIZE_MIN = 5f;
+    
     /*  Prefs */
     private static final String nodeRoot = "/com/esp8266.ru/ESPlorer/config";
     private static final String SERIAL_PORT = "serial_port";
@@ -11428,6 +11655,8 @@ public class ESPlorer extends javax.swing.JFrame {
     private static final String LOG_FONT_SIZE = "log_font_size";
     private static final String LOG_MAX_SIZE = "log_max_size";
     private static final String TERMINAL_MAX_SIZE = "terminal_max_size";
+    private static final String SEARCH_MATCH_CASE = "search_match_case";
+    private static final String SEARCH_HIGHLIGHT_ALL = "search_highlight_all";
 
     // v0.2
     private static final String AUTO_SCROLL = "auto_scroll";
@@ -12028,7 +12257,45 @@ public class ESPlorer extends javax.swing.JFrame {
         Condensed.setSelected(prefs.getBoolean(CONDENSED, false));
         AutodetectFirmware.setSelected(prefs.getBoolean(AUTODETECT, true));
         CommandEcho.setSelected(prefs.getBoolean(COMMAND_ECHO, true));
-        log("Load saved settings: DONE.");
+        
+        FindHighlightAll.setSelected(prefs.getBoolean(SEARCH_HIGHLIGHT_ALL, false));
+        FindMatchCase.setSelected(prefs.getBoolean(SEARCH_MATCH_CASE, false));
+        
+        // snippets
+//        for (int i=0; i < 8) {
+            int n = 0;
+            String suffix = "";
+            SnippetEdit0.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit1.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit2.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit3.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit4.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit5.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit6.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit7.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit8.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit9.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit10.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit11.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit12.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit13.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            n++;
+            SnippetEdit14.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+//        }
+        
     }
 
     private void AddNodeFileButton(String FileName, int size) {
@@ -12266,6 +12533,8 @@ public class ESPlorer extends javax.swing.JFrame {
         TextEditor1.get(i).setTabsEmulated(true);
         TextEditor1.get(i).setBracketMatchingEnabled(true);
         TextEditor1.get(i).setTabSize(4);
+        TextEditor1.get(i).setMarkOccurrences(true);
+        TextEditor1.get(i).setMarkOccurrencesDelay(500);
         TextEditor1.get(i).addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 TextEditorCaretUpdate(evt);
@@ -12289,6 +12558,14 @@ public class ESPlorer extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TextEditorKeyTyped(evt);
             }
+
+            public void keyPressed(KeyEvent evt) {
+                if (evt.getExtendedKeyCode() == KeyEvent.VK_ESCAPE) {
+                    SearchPanel.setVisible(false);
+                }
+            }
+            
+            
         });
         TextEditor1.get(i).addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -12298,6 +12575,7 @@ public class ESPlorer extends javax.swing.JFrame {
                 }
             }
         });
+        
         TextScroll1.get(i).setViewportView(TextEditor1.get(i));
         TextScroll1.get(i).setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         TextScroll1.get(i).setIconRowHeaderEnabled(false);
