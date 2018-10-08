@@ -54,6 +54,7 @@ public class ESPlorer extends javax.swing.JFrame {
     public static ArrayList<String> LAFclass;
     public static Preferences prefs;
     private static int FirmwareType;
+    private static int SNIPPETS_COUNT=16;
 
     private static pyFiler pyFiler = new pyFiler();
 
@@ -241,22 +242,6 @@ public class ESPlorer extends javax.swing.JFrame {
         MicroPythonGPIO16 = new javax.swing.JButton();
         NodeMCUSnippets = new javax.swing.JLayeredPane();
         LeftSnippetsPane = new javax.swing.JLayeredPane();
-        SnippetEdit0 = new javax.swing.JButton();
-        SnippetEdit1 = new javax.swing.JButton();
-        SnippetEdit2 = new javax.swing.JButton();
-        SnippetEdit3 = new javax.swing.JButton();
-        SnippetEdit4 = new javax.swing.JButton();
-        SnippetEdit5 = new javax.swing.JButton();
-        SnippetEdit6 = new javax.swing.JButton();
-        SnippetEdit7 = new javax.swing.JButton();
-        SnippetEdit8 = new javax.swing.JButton();
-        SnippetEdit9 = new javax.swing.JButton();
-        SnippetEdit10 = new javax.swing.JButton();
-        SnippetEdit11 = new javax.swing.JButton();
-        SnippetEdit12 = new javax.swing.JButton();
-        SnippetEdit13 = new javax.swing.JButton();
-        SnippetEdit14 = new javax.swing.JButton();
-        SnippetEdit15 = new javax.swing.JButton();
         SnippetTopPane = new javax.swing.JLayeredPane();
         SnippetName = new javax.swing.JTextField();
         SnippetSave = new javax.swing.JButton();
@@ -496,22 +481,6 @@ public class ESPlorer extends javax.swing.JFrame {
         PyListDir = new javax.swing.JButton();
         PyFileAsButton1 = new javax.swing.JButton();
         RightSnippetsPane = new javax.swing.JLayeredPane();
-        ButtonSnippet0 = new javax.swing.JButton();
-        ButtonSnippet1 = new javax.swing.JButton();
-        ButtonSnippet2 = new javax.swing.JButton();
-        ButtonSnippet3 = new javax.swing.JButton();
-        ButtonSnippet4 = new javax.swing.JButton();
-        ButtonSnippet5 = new javax.swing.JButton();
-        ButtonSnippet6 = new javax.swing.JButton();
-        ButtonSnippet7 = new javax.swing.JButton();
-        ButtonSnippet8 = new javax.swing.JButton();
-        ButtonSnippet9 = new javax.swing.JButton();
-        ButtonSnippet10 = new javax.swing.JButton();
-        ButtonSnippet11 = new javax.swing.JButton();
-        ButtonSnippet12 = new javax.swing.JButton();
-        ButtonSnippet13 = new javax.swing.JButton();
-        ButtonSnippet14 = new javax.swing.JButton();
-        ButtonSnippet15 = new javax.swing.JButton();
         RightExtraButtons = new javax.swing.JLayeredPane();
         NodeHeap = new javax.swing.JButton();
         NodeInfo = new javax.swing.JButton();
@@ -828,7 +797,6 @@ public class ESPlorer extends javax.swing.JFrame {
         About.setIconImage(null);
         About.setMinimumSize(new java.awt.Dimension(406, 280));
         About.setModalityType(java.awt.Dialog.ModalityType.DOCUMENT_MODAL);
-        About.setPreferredSize(new java.awt.Dimension(428, 280));
         About.setResizable(false);
         About.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -1456,6 +1424,7 @@ public class ESPlorer extends javax.swing.JFrame {
                 TextEditorKeyTyped(evt);
             }
         });
+        TextScroll.setViewportView(TextEditor);
 
         FileLayeredPane.setLayer(TextScroll, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -2610,210 +2579,11 @@ public class ESPlorer extends javax.swing.JFrame {
 
         NodeMCUSnippets.setOpaque(true);
 
+        LeftSnippetsPane.setMaximumSize(new java.awt.Dimension(145, 145));
+        LeftSnippetsPane.setMinimumSize(new java.awt.Dimension(100, 31));
         LeftSnippetsPane.setOpaque(true);
-
-        SnippetEdit0.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit0.setText("Edit Snippet0");
-        SnippetEdit0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit0ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit1.setText("Edit Snippet1");
-        SnippetEdit1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit1ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit2.setText("Edit Snippet2");
-        SnippetEdit2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit2ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit3.setText("Edit Snippet3");
-        SnippetEdit3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit3ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit4.setText("Edit Snippet4");
-        SnippetEdit4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit4ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit5.setText("Edit Snippet5");
-        SnippetEdit5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit5ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit6.setText("Edit Snippet6");
-        SnippetEdit6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit6ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit7.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit7.setText("Edit Snippet7");
-        SnippetEdit7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit7ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit8.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit8.setText("Edit Snippet8");
-        SnippetEdit8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit8ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit9.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit9.setText("Edit Snippet9");
-        SnippetEdit9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit9ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit10.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit10.setText("Edit Snippet10");
-        SnippetEdit10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit10ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit11.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit11.setText("Edit Snippet11");
-        SnippetEdit11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit11ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit12.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit12.setText("Edit Snippet12");
-        SnippetEdit12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit12ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit13.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit13.setText("Edit Snippet13");
-        SnippetEdit13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit13ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit14.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit14.setText("Edit Snippet14");
-        SnippetEdit14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit14ActionPerformed(evt);
-            }
-        });
-
-        SnippetEdit15.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        SnippetEdit15.setText("Edit Snippet15");
-        SnippetEdit15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SnippetEdit15ActionPerformed(evt);
-            }
-        });
-
-        LeftSnippetsPane.setLayer(SnippetEdit0, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit13, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LeftSnippetsPane.setLayer(SnippetEdit15, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout LeftSnippetsPaneLayout = new javax.swing.GroupLayout(LeftSnippetsPane);
-        LeftSnippetsPane.setLayout(LeftSnippetsPaneLayout);
-        LeftSnippetsPaneLayout.setHorizontalGroup(
-            LeftSnippetsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SnippetEdit0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-            .addComponent(SnippetEdit11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SnippetEdit15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        LeftSnippetsPaneLayout.setVerticalGroup(
-            LeftSnippetsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LeftSnippetsPaneLayout.createSequentialGroup()
-                .addComponent(SnippetEdit0, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit7, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit9, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit10, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit12, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit13, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit14, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnippetEdit15, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(256, Short.MAX_VALUE))
-        );
+        LeftSnippetsPane.setPreferredSize(new java.awt.Dimension(145, 145));
+        LeftSnippetsPane.setLayout(new java.awt.FlowLayout());
 
         SnippetTopPane.setOpaque(true);
 
@@ -2894,7 +2664,7 @@ public class ESPlorer extends javax.swing.JFrame {
                         .addComponent(SnippetRun, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Condensed)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SnippetTopPaneLayout.setVerticalGroup(
             SnippetTopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2942,7 +2712,7 @@ public class ESPlorer extends javax.swing.JFrame {
                 .addComponent(SnippetTopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SnippetScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(LeftSnippetsPane)
+            .addComponent(LeftSnippetsPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         TextTab.addTab("Snippets", NodeMCUSnippets);
@@ -6184,7 +5954,6 @@ public class ESPlorer extends javax.swing.JFrame {
 
         FileManagersLayer.setMaximumSize(new java.awt.Dimension(145, 145));
         FileManagersLayer.setMinimumSize(new java.awt.Dimension(145, 145));
-        FileManagersLayer.setPreferredSize(new java.awt.Dimension(145, 145));
 
         NodeFileManagerPane.setComponentPopupMenu(ContextMenuFileManager);
         NodeFileManagerPane.setMaximumSize(new java.awt.Dimension(145, 145));
@@ -6374,166 +6143,6 @@ public class ESPlorer extends javax.swing.JFrame {
         RightFilesSplitPane.setRightComponent(FileManagerScrollPane);
 
         RightSnippetsPane.setLayout(new java.awt.FlowLayout());
-
-        ButtonSnippet0.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet0.setMnemonic(KeyEvent.VK_BACK_QUOTE);
-        ButtonSnippet0.setText("Snippet0");
-        ButtonSnippet0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet0ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet0);
-
-        ButtonSnippet1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet1.setMnemonic(KeyEvent.VK_1);
-        ButtonSnippet1.setText("Snippet1");
-        ButtonSnippet1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet1ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet1);
-
-        ButtonSnippet2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet2.setMnemonic(KeyEvent.VK_2);
-        ButtonSnippet2.setText("Snippet2");
-        ButtonSnippet2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet2ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet2);
-
-        ButtonSnippet3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet3.setMnemonic(KeyEvent.VK_3);
-        ButtonSnippet3.setText("Snippet3");
-        ButtonSnippet3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet3ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet3);
-
-        ButtonSnippet4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet4.setMnemonic(KeyEvent.VK_4);
-        ButtonSnippet4.setText("Snippet4");
-        ButtonSnippet4.setToolTipText("");
-        ButtonSnippet4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet4ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet4);
-
-        ButtonSnippet5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet5.setMnemonic(KeyEvent.VK_5);
-        ButtonSnippet5.setText("Snippet5");
-        ButtonSnippet5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet5ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet5);
-
-        ButtonSnippet6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet6.setMnemonic(KeyEvent.VK_6);
-        ButtonSnippet6.setText("Snippet6");
-        ButtonSnippet6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet6ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet6);
-
-        ButtonSnippet7.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet7.setMnemonic(KeyEvent.VK_7);
-        ButtonSnippet7.setText("Snippet7");
-        ButtonSnippet7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet7ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet7);
-
-        ButtonSnippet8.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet8.setMnemonic(KeyEvent.VK_8);
-        ButtonSnippet8.setText("Snippet8");
-        ButtonSnippet8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet8ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet8);
-
-        ButtonSnippet9.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet9.setMnemonic(KeyEvent.VK_9);
-        ButtonSnippet9.setText("Snippet9");
-        ButtonSnippet9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet9ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet9);
-
-        ButtonSnippet10.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet10.setMnemonic(KeyEvent.VK_0);
-        ButtonSnippet10.setText("Snippet10");
-        ButtonSnippet10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet10ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet10);
-
-        ButtonSnippet11.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet11.setMnemonic(KeyEvent.VK_MINUS);
-        ButtonSnippet11.setText("Snippet11");
-        ButtonSnippet11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet11ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet11);
-
-        ButtonSnippet12.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet12.setMnemonic(KeyEvent.VK_EQUALS);
-        ButtonSnippet12.setText("Snippet12");
-        ButtonSnippet12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet12ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet12);
-
-        ButtonSnippet13.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet13.setMnemonic(KeyEvent.VK_BACK_SLASH);
-        ButtonSnippet13.setText("Snippet13");
-        ButtonSnippet13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet13ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet13);
-
-        ButtonSnippet14.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet14.setMnemonic(KeyEvent.VK_BACK_SPACE);
-        ButtonSnippet14.setText("Snippet14");
-        ButtonSnippet14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet14ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet14);
-
-        ButtonSnippet15.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ButtonSnippet15.setText("Snippet15");
-        ButtonSnippet15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSnippet15ActionPerformed(evt);
-            }
-        });
-        RightSnippetsPane.add(ButtonSnippet15);
 
         RightBigPane.setLayer(RightFilesSplitPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
         RightBigPane.setLayer(RightSnippetsPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -7482,23 +7091,7 @@ public class ESPlorer extends javax.swing.JFrame {
             MenuItemESPFormat.setEnabled(true);
             SnippetRun.setEnabled(true);
             ButtonSendLine.setEnabled(true);
-            ButtonSnippet0.setEnabled(true);
-            ButtonSnippet1.setEnabled(true);
-            ButtonSnippet2.setEnabled(true);
-            ButtonSnippet3.setEnabled(true);
-            ButtonSnippet4.setEnabled(true);
-            ButtonSnippet5.setEnabled(true);
-            ButtonSnippet6.setEnabled(true);
-            ButtonSnippet7.setEnabled(true);
-            ButtonSnippet8.setEnabled(true);
-            ButtonSnippet9.setEnabled(true);
-            ButtonSnippet10.setEnabled(true);
-            ButtonSnippet11.setEnabled(true);
-            ButtonSnippet12.setEnabled(true);
-            ButtonSnippet13.setEnabled(true);
-            ButtonSnippet14.setEnabled(true);
-            ButtonSnippet15.setEnabled(true);
-
+            enableSnippetButtons(true);
         } else {
             UpdateLED();
             Port.setEnabled(true);
@@ -7527,22 +7120,7 @@ public class ESPlorer extends javax.swing.JFrame {
             MenuItemESPReset.setEnabled(false);
             MenuItemESPFormat.setEnabled(false);
             SnippetRun.setEnabled(false);
-            ButtonSnippet0.setEnabled(false);
-            ButtonSnippet1.setEnabled(false);
-            ButtonSnippet2.setEnabled(false);
-            ButtonSnippet3.setEnabled(false);
-            ButtonSnippet4.setEnabled(false);
-            ButtonSnippet5.setEnabled(false);
-            ButtonSnippet6.setEnabled(false);
-            ButtonSnippet7.setEnabled(false);
-            ButtonSnippet8.setEnabled(false);
-            ButtonSnippet9.setEnabled(false);
-            ButtonSnippet10.setEnabled(false);
-            ButtonSnippet11.setEnabled(false);
-            ButtonSnippet12.setEnabled(false);
-            ButtonSnippet13.setEnabled(false);
-            ButtonSnippet14.setEnabled(false);
-            ButtonSnippet15.setEnabled(false);
+            enableSnippetButtons(false);
         }
 
         DisablingNotImplemented();
@@ -8805,50 +8383,20 @@ public class ESPlorer extends javax.swing.JFrame {
             SnippetText.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_PYTHON);
         }
         log("Snippets: loading...");
-        for (int i = 0; i <= 15; i++) {
+        for (int i = 0; i < SNIPPETS_COUNT; i++) {
             String n = Integer.toString(i).trim();
             if (prefs.get("Snippet" + n + suffix + "name", null) == null) {
                 prefs.put("Snippet" + n + suffix + "name", "Snippet" + n);
                 prefs.put("Snippet" + n + suffix, "");
                 PrefsFlush();
             }
-            if (i == 0) {
-                ButtonSnippet0.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 1) {
-                ButtonSnippet1.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 2) {
-                ButtonSnippet2.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 3) {
-                ButtonSnippet3.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 4) {
-                ButtonSnippet4.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 5) {
-                ButtonSnippet5.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 6) {
-                ButtonSnippet6.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 7) {
-                ButtonSnippet7.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 8) {
-                ButtonSnippet8.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 9) {
-                ButtonSnippet9.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 10) {
-                ButtonSnippet10.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 11) {
-                ButtonSnippet11.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 12) {
-                ButtonSnippet12.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 13) {
-                ButtonSnippet13.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else if (i == 14) {
-                ButtonSnippet14.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            } else {
-                ButtonSnippet15.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            }
+            
+            SnippetButtons.get(i).setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
+            
             Snippets[i] = prefs.get("Snippet" + n + suffix, "");
             if (i == 0 && OptionMicroPython.isSelected()) {
                 if (Snippets[i].isEmpty()) {
-                    ButtonSnippet0.setText("GPIO2 1");
+                    SnippetButtons.get(0).setText("GPIO2 1");
                     prefs.put("Snippet" + i + suffix + "name", "GPIO2 1");
                     Snippets[i] = "import pyb\r\n"
                             + "pin = pyb.Pin(2, pyb.Pin.OUT)\r\n"
@@ -8857,7 +8405,7 @@ public class ESPlorer extends javax.swing.JFrame {
             }
             if (i == 1 && OptionMicroPython.isSelected()) {
                 if (Snippets[i].isEmpty()) {
-                    ButtonSnippet1.setText("GPIO2 0");
+                    SnippetButtons.get(1).setText("GPIO2 0");
                     prefs.put("Snippet" + i + suffix + "name", "GPIO2 0");
                     Snippets[i] = "import pyb\r\n"
                             + "pin = pyb.Pin(2, pyb.Pin.OUT)\r\n"
@@ -8900,70 +8448,6 @@ public class ESPlorer extends javax.swing.JFrame {
         log("Snippet name set to:" + snippetName);
         SnippetName.setText(snippetName);
     }
-    private void ButtonSnippet0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet0ActionPerformed
-        DoSnippet(0);
-    }//GEN-LAST:event_ButtonSnippet0ActionPerformed
-
-    private void ButtonSnippet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet1ActionPerformed
-        DoSnippet(1);
-    }//GEN-LAST:event_ButtonSnippet1ActionPerformed
-
-    private void ButtonSnippet2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet2ActionPerformed
-        DoSnippet(2);
-    }//GEN-LAST:event_ButtonSnippet2ActionPerformed
-
-    private void ButtonSnippet3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet3ActionPerformed
-        DoSnippet(3);
-    }//GEN-LAST:event_ButtonSnippet3ActionPerformed
-
-    private void ButtonSnippet4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet4ActionPerformed
-        DoSnippet(4);
-    }//GEN-LAST:event_ButtonSnippet4ActionPerformed
-
-    private void ButtonSnippet5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet5ActionPerformed
-        DoSnippet(5);
-    }//GEN-LAST:event_ButtonSnippet5ActionPerformed
-
-    private void ButtonSnippet6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet6ActionPerformed
-        DoSnippet(6);
-    }//GEN-LAST:event_ButtonSnippet6ActionPerformed
-
-    private void ButtonSnippet7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet7ActionPerformed
-        DoSnippet(7);
-    }//GEN-LAST:event_ButtonSnippet7ActionPerformed
-
-    private void ButtonSnippet8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet8ActionPerformed
-        DoSnippet(8);
-    }//GEN-LAST:event_ButtonSnippet8ActionPerformed
-
-    private void ButtonSnippet9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet9ActionPerformed
-        DoSnippet(9);
-    }//GEN-LAST:event_ButtonSnippet9ActionPerformed
-
-    private void ButtonSnippet10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet10ActionPerformed
-        DoSnippet(10);
-    }//GEN-LAST:event_ButtonSnippet10ActionPerformed
-
-    private void ButtonSnippet11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet11ActionPerformed
-        DoSnippet(11);
-    }//GEN-LAST:event_ButtonSnippet11ActionPerformed
-
-    private void ButtonSnippet12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet12ActionPerformed
-        DoSnippet(12);
-    }//GEN-LAST:event_ButtonSnippet12ActionPerformed
-
-    private void ButtonSnippet13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet13ActionPerformed
-        DoSnippet(13);
-    }//GEN-LAST:event_ButtonSnippet13ActionPerformed
-
-    private void ButtonSnippet14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet14ActionPerformed
-        DoSnippet(14);
-    }//GEN-LAST:event_ButtonSnippet14ActionPerformed
-
-    private void ButtonSnippet15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSnippet15ActionPerformed
-        DoSnippet(15);
-    }//GEN-LAST:event_ButtonSnippet15ActionPerformed
-
     private void MenuItemEditSendLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemEditSendLineActionPerformed
         int nLine;
         if ((LeftTab.getSelectedIndex() == 0) && (TextTab.getSelectedIndex() == 0)) { // NodeMCU and Scripts
@@ -9982,62 +9466,19 @@ public class ESPlorer extends javax.swing.JFrame {
         SnippetName.setEnabled(false);
         SnippetSave.setEnabled(false);
         SnippetRun.setEnabled(true);
-        SnippetCancelEdit.setEnabled(true);
+        SnippetCancelEdit.setEnabled(false);
         SnippetText.setEnabled(false);
         SnippetScrollPane.setEnabled(false);
         SnippetText.setEditable(false);
         //SnippetText.setBackground(SnippetTopPane.getBackground());
         SnippetText.setEnabled(false);
-        if (iSnippets == 0) {
-            ButtonSnippet0.setText(SnippetName.getText());
-            SnippetEdit0.setText(SnippetName.getText());
-        } else if (iSnippets == 1) {
-            ButtonSnippet1.setText(SnippetName.getText());
-            SnippetEdit1.setText(SnippetName.getText());
-        } else if (iSnippets == 2) {
-            ButtonSnippet2.setText(SnippetName.getText());
-            SnippetEdit2.setText(SnippetName.getText());
-        } else if (iSnippets == 3) {
-            ButtonSnippet3.setText(SnippetName.getText());
-            SnippetEdit3.setText(SnippetName.getText());
-        } else if (iSnippets == 4) {
-            ButtonSnippet4.setText(SnippetName.getText());
-            SnippetEdit4.setText(SnippetName.getText());
-        } else if (iSnippets == 5) {
-            ButtonSnippet5.setText(SnippetName.getText());
-            SnippetEdit5.setText(SnippetName.getText());
-        } else if (iSnippets == 6) {
-            ButtonSnippet6.setText(SnippetName.getText());
-            SnippetEdit6.setText(SnippetName.getText());
-        } else if (iSnippets == 7) {
-            ButtonSnippet7.setText(SnippetName.getText());
-            SnippetEdit7.setText(SnippetName.getText());
-        } else if (iSnippets == 8) {
-            ButtonSnippet8.setText(SnippetName.getText());
-            SnippetEdit8.setText(SnippetName.getText());
-        } else if (iSnippets == 9) {
-            ButtonSnippet9.setText(SnippetName.getText());
-            SnippetEdit9.setText(SnippetName.getText());
-        } else if (iSnippets == 10) {
-            ButtonSnippet10.setText(SnippetName.getText());
-            SnippetEdit10.setText(SnippetName.getText());
-        } else if (iSnippets == 11) {
-            ButtonSnippet11.setText(SnippetName.getText());
-            SnippetEdit11.setText(SnippetName.getText());
-        } else if (iSnippets == 12) {
-            ButtonSnippet12.setText(SnippetName.getText());
-            SnippetEdit12.setText(SnippetName.getText());
-        } else if (iSnippets == 13) {
-            ButtonSnippet13.setText(SnippetName.getText());
-            SnippetEdit13.setText(SnippetName.getText());
-        } else if (iSnippets == 14) {
-            ButtonSnippet14.setText(SnippetName.getText());
-            SnippetEdit14.setText(SnippetName.getText());
-        } else {
-            ButtonSnippet15.setText(SnippetName.getText());
-            SnippetEdit15.setText(SnippetName.getText());
-            iSnippets = 15;
+        
+        if (iSnippets > SNIPPETS_COUNT-1) {
+            iSnippets = SNIPPETS_COUNT-1;
         }
+        SnippetButtons.get(iSnippets).setText(SnippetName.getText());
+        SnippetEditButtons.get(iSnippets).setText(SnippetName.getText());        
+        
         SetSnippetEditButtonsTooltip();
         Snippets[iSnippets] = SnippetText.getText();
         String suffix;
@@ -10053,70 +9494,6 @@ public class ESPlorer extends javax.swing.JFrame {
         }
         SnippetText.discardAllEdits();
     }//GEN-LAST:event_SnippetSaveActionPerformed
-
-    private void SnippetEdit15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit15ActionPerformed
-        SnippetEdit(15);
-    }//GEN-LAST:event_SnippetEdit15ActionPerformed
-
-    private void SnippetEdit14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit14ActionPerformed
-        SnippetEdit(14);
-    }//GEN-LAST:event_SnippetEdit14ActionPerformed
-
-    private void SnippetEdit13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit13ActionPerformed
-        SnippetEdit(13);
-    }//GEN-LAST:event_SnippetEdit13ActionPerformed
-
-    private void SnippetEdit12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit12ActionPerformed
-        SnippetEdit(12);
-    }//GEN-LAST:event_SnippetEdit12ActionPerformed
-
-    private void SnippetEdit11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit11ActionPerformed
-        SnippetEdit(11);
-    }//GEN-LAST:event_SnippetEdit11ActionPerformed
-
-    private void SnippetEdit10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit10ActionPerformed
-        SnippetEdit(10);
-    }//GEN-LAST:event_SnippetEdit10ActionPerformed
-
-    private void SnippetEdit9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit9ActionPerformed
-        SnippetEdit(9);
-    }//GEN-LAST:event_SnippetEdit9ActionPerformed
-
-    private void SnippetEdit8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit8ActionPerformed
-        SnippetEdit(8);
-    }//GEN-LAST:event_SnippetEdit8ActionPerformed
-
-    private void SnippetEdit7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit7ActionPerformed
-        SnippetEdit(7);
-    }//GEN-LAST:event_SnippetEdit7ActionPerformed
-
-    private void SnippetEdit6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit6ActionPerformed
-        SnippetEdit(6);
-    }//GEN-LAST:event_SnippetEdit6ActionPerformed
-
-    private void SnippetEdit5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit5ActionPerformed
-        SnippetEdit(5);
-    }//GEN-LAST:event_SnippetEdit5ActionPerformed
-
-    private void SnippetEdit4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit4ActionPerformed
-        SnippetEdit(4);
-    }//GEN-LAST:event_SnippetEdit4ActionPerformed
-
-    private void SnippetEdit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit3ActionPerformed
-        SnippetEdit(3);
-    }//GEN-LAST:event_SnippetEdit3ActionPerformed
-
-    private void SnippetEdit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit2ActionPerformed
-        SnippetEdit(2);
-    }//GEN-LAST:event_SnippetEdit2ActionPerformed
-
-    private void SnippetEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit1ActionPerformed
-        SnippetEdit(1);
-    }//GEN-LAST:event_SnippetEdit1ActionPerformed
-
-    private void SnippetEdit0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnippetEdit0ActionPerformed
-        SnippetEdit(0);
-    }//GEN-LAST:event_SnippetEdit0ActionPerformed
 
     private void cmdTimerStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdTimerStopActionPerformed
         String cmd = "tmr.stop(" + Integer.toString(TimerNumber.getSelectedIndex()) + ")";
@@ -11046,22 +10423,6 @@ public class ESPlorer extends javax.swing.JFrame {
     private javax.swing.JButton ButtonRedo;
     private javax.swing.JButton ButtonSendLine;
     private javax.swing.JButton ButtonSendSelected;
-    private javax.swing.JButton ButtonSnippet0;
-    private javax.swing.JButton ButtonSnippet1;
-    private javax.swing.JButton ButtonSnippet10;
-    private javax.swing.JButton ButtonSnippet11;
-    private javax.swing.JButton ButtonSnippet12;
-    private javax.swing.JButton ButtonSnippet13;
-    private javax.swing.JButton ButtonSnippet14;
-    private javax.swing.JButton ButtonSnippet15;
-    private javax.swing.JButton ButtonSnippet2;
-    private javax.swing.JButton ButtonSnippet3;
-    private javax.swing.JButton ButtonSnippet4;
-    private javax.swing.JButton ButtonSnippet5;
-    private javax.swing.JButton ButtonSnippet6;
-    private javax.swing.JButton ButtonSnippet7;
-    private javax.swing.JButton ButtonSnippet8;
-    private javax.swing.JButton ButtonSnippet9;
     private javax.swing.JButton ButtonUndo;
     private javax.swing.JCheckBox CR;
     private javax.swing.JComboBox Command;
@@ -11330,22 +10691,6 @@ public class ESPlorer extends javax.swing.JFrame {
     private javax.swing.JTextField ServerTimeout;
     private javax.swing.JCheckBoxMenuItem ShowFileManager;
     private javax.swing.JButton SnippetCancelEdit;
-    private javax.swing.JButton SnippetEdit0;
-    private javax.swing.JButton SnippetEdit1;
-    private javax.swing.JButton SnippetEdit10;
-    private javax.swing.JButton SnippetEdit11;
-    private javax.swing.JButton SnippetEdit12;
-    private javax.swing.JButton SnippetEdit13;
-    private javax.swing.JButton SnippetEdit14;
-    private javax.swing.JButton SnippetEdit15;
-    private javax.swing.JButton SnippetEdit2;
-    private javax.swing.JButton SnippetEdit3;
-    private javax.swing.JButton SnippetEdit4;
-    private javax.swing.JButton SnippetEdit5;
-    private javax.swing.JButton SnippetEdit6;
-    private javax.swing.JButton SnippetEdit7;
-    private javax.swing.JButton SnippetEdit8;
-    private javax.swing.JButton SnippetEdit9;
     private javax.swing.JTextField SnippetName;
     private javax.swing.JButton SnippetRun;
     private javax.swing.JButton SnippetSave;
@@ -11536,6 +10881,8 @@ public class ESPlorer extends javax.swing.JFrame {
     private ArrayList<File> iFile; // for files in tab
     private ArrayList<File> mFile; // for multifile op
     private ArrayList<Boolean> FileChanged;
+    private ArrayList<javax.swing.JButton> SnippetEditButtons;
+    private ArrayList<javax.swing.JButton> SnippetButtons;
     private ArrayList<javax.swing.JButton> FileAsButton;
     private ArrayList<javax.swing.JButton> PyFileAsButton;
     private ArrayList<javax.swing.JPopupMenu> FilePopupMenu;
@@ -11685,7 +11032,7 @@ public class ESPlorer extends javax.swing.JFrame {
     /*  Prefs end */
 
  /* Snippets */
-    private static String[] Snippets = new String[16];
+    private static String[] Snippets = new String[SNIPPETS_COUNT];
     private static int iSnippets = 0;
 
     private static final int portMask = SerialPort.MASK_RXCHAR + SerialPort.MASK_CTS;
@@ -12164,6 +11511,7 @@ public class ESPlorer extends javax.swing.JFrame {
 
         FilesTabbedPane.removeAll();
 
+        initSnippets();
         LoadPrefs();
         LoadSnippets();
 
@@ -12203,8 +11551,9 @@ public class ESPlorer extends javax.swing.JFrame {
         FileAsButton1.setVisible(false);
         FileRenamePanel.setVisible(false);
         PyFileAsButton1.setVisible(false);
+        
     }
-
+   
     private void LoadPrefs() {
         // Settings - Firmware
         workDir = prefs.get(PATH, "");
@@ -12262,40 +11611,61 @@ public class ESPlorer extends javax.swing.JFrame {
         FindMatchCase.setSelected(prefs.getBoolean(SEARCH_MATCH_CASE, false));
         
         // snippets
-//        for (int i=0; i < 8) {
-            int n = 0;
+        for (int i=0; i < SNIPPETS_COUNT; i++) {
             String suffix = "";
-            SnippetEdit0.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit1.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit2.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit3.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit4.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit5.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit6.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit7.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit8.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit9.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit10.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit11.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit12.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit13.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-            n++;
-            SnippetEdit14.setText(prefs.get("Snippet" + n + suffix + "name", "Snippet" + n));
-//        }
-        
+            SnippetEditButtons.get(i).setText(prefs.get("Snippet" + i + suffix + "name", "Snippet" + i));
+        }
+    }
+    
+    private void initSnippets() {
+        SnippetEditButtons = new ArrayList<>();
+        SnippetButtons = new ArrayList<>();
+        for (int i=0; i<SNIPPETS_COUNT; i++) {
+            JButton snippetEditBtn = createSnippetEditButton(i);
+            SnippetEditButtons.add(snippetEditBtn);
+            LeftSnippetsPane.add(snippetEditBtn);
+            
+            JButton snippetBtn = createSnippetButton(i);
+            SnippetButtons.add(snippetBtn);
+            RightSnippetsPane.add(snippetBtn);
+        }
+    }
+    
+    private JButton createSnippetButton(final int id) {
+        JButton snippetBtn = new JButton();
+        snippetBtn.setText("Snippet"+id);
+        snippetBtn.setEnabled(false);
+        snippetBtn.setAlignmentX(0.5F);
+        snippetBtn.setMargin(new java.awt.Insets(2, 14, 2, 14));
+//        snippetBtn.setMaximumSize(new java.awt.Dimension(71, 21));
+//        snippetBtn.setPreferredSize(new java.awt.Dimension(71, 21));
+        snippetBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DoSnippet(id);
+            }
+        });
+        return snippetBtn;
+    }
+    
+    private JButton createSnippetEditButton(final int id) {
+        JButton snippetBtn = new JButton();
+        snippetBtn.setText("Snippet"+id);
+        snippetBtn.setAlignmentX(0.5F);
+        snippetBtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        snippetBtn.setMaximumSize(new java.awt.Dimension(130, 25));
+        snippetBtn.setPreferredSize(new java.awt.Dimension(130, 25));
+        snippetBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SnippetEdit(id);
+            }
+        });
+        return snippetBtn;
+    }
+    
+    private void enableSnippetButtons(boolean enable) {
+        for (int i=0; i<SNIPPETS_COUNT; i++) {
+            SnippetButtons.get(i).setEnabled(enable);
+        }
     }
 
     private void AddNodeFileButton(String FileName, int size) {
@@ -13454,22 +12824,7 @@ public class ESPlorer extends javax.swing.JFrame {
         MenuItemEditorSendLine.setEnabled(false);
         ButtonSendLine.setEnabled(false);
         SnippetRun.setEnabled(false);
-        ButtonSnippet0.setEnabled(false);
-        ButtonSnippet1.setEnabled(false);
-        ButtonSnippet2.setEnabled(false);
-        ButtonSnippet3.setEnabled(false);
-        ButtonSnippet4.setEnabled(false);
-        ButtonSnippet5.setEnabled(false);
-        ButtonSnippet6.setEnabled(false);
-        ButtonSnippet7.setEnabled(false);
-        ButtonSnippet8.setEnabled(false);
-        ButtonSnippet9.setEnabled(false);
-        ButtonSnippet10.setEnabled(false);
-        ButtonSnippet11.setEnabled(false);
-        ButtonSnippet12.setEnabled(false);
-        ButtonSnippet13.setEnabled(false);
-        ButtonSnippet14.setEnabled(false);
-        ButtonSnippet15.setEnabled(false);
+        enableSnippetButtons(false);
     }
 
     public void SendLock() {
@@ -13537,22 +12892,9 @@ public class ESPlorer extends javax.swing.JFrame {
         // should be called after loading, setting or editing any of the Snippet-Names
         // eg after SnippetSaveActionPerformed() and LoadSnippets ()
         // Mike, DL2ZAP 2015-01-04
-        SnippetEdit0.setToolTipText(ButtonSnippet0.getText());
-        SnippetEdit1.setToolTipText(ButtonSnippet1.getText());
-        SnippetEdit2.setToolTipText(ButtonSnippet2.getText());
-        SnippetEdit3.setToolTipText(ButtonSnippet3.getText());
-        SnippetEdit4.setToolTipText(ButtonSnippet4.getText());
-        SnippetEdit5.setToolTipText(ButtonSnippet5.getText());
-        SnippetEdit6.setToolTipText(ButtonSnippet6.getText());
-        SnippetEdit7.setToolTipText(ButtonSnippet7.getText());
-        SnippetEdit8.setToolTipText(ButtonSnippet8.getText());
-        SnippetEdit9.setToolTipText(ButtonSnippet9.getText());
-        SnippetEdit10.setToolTipText(ButtonSnippet10.getText());
-        SnippetEdit11.setToolTipText(ButtonSnippet11.getText());
-        SnippetEdit13.setToolTipText(ButtonSnippet13.getText());
-        SnippetEdit13.setToolTipText(ButtonSnippet13.getText());
-        SnippetEdit14.setToolTipText(ButtonSnippet14.getText());
-        SnippetEdit15.setToolTipText(ButtonSnippet15.getText());
+        for (int i=0; i< SNIPPETS_COUNT; i++) {
+            SnippetEditButtons.get(i).setToolTipText(SnippetButtons.get(i).getText());
+        }
     }
 
     boolean SaveDownloadedFile() {
